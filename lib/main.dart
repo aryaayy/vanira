@@ -1,42 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:vanira/pages/login_page.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vanira/pages/profile_page.dart';
 
 void main() {
   runApp(const MainApp());
 }
 
-class MainApp extends StatefulWidget {
+class MainApp extends StatelessWidget {
   const MainApp({super.key});
 
   @override
-  State<MainApp> createState() => _MainAppState();
-}
-
-
-class _MainAppState extends State<MainApp> {
-  @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: ProfilePage(),
       theme: ThemeData(
         colorScheme: ColorScheme.fromSwatch().copyWith(
-          primary: const Color(0xFFEEFFF2), 
-          onPrimary: const Color(0xFF2E694B), 
-          secondary: const Color(0xFF67A076), 
+          primary: const Color(0xFFEEFFF2),
+          onPrimary: const Color(0xFF2E694B),
+          secondary: const Color(0xFF67A076),
           tertiary: const Color(0xFFFE9F6A),
-          onTertiary: const Color(0xFFF5BE9F)
+          onTertiary: const Color(0xFFF5BE9F),
         ),
         fontFamily: 'Montserrat',
         scaffoldBackgroundColor: Colors.white,
-        dividerColor: Color(0xFFBDD7C3), // untuk divider pada container create account dan login
-        splashColor: Color(0xFF67A076), // untuk 3 screen awal
+        dividerColor: Color(0xFFBDD7C3),
+        splashColor: Color(0xFF67A076),
       ),
+      home: const ProfilePage(),
     );
   }
 }
 
-mixin AppMixin{
+// Mixin tetap harus digunakan di widget atau dalam metode yang memerlukan context
+mixin AppMixin {
   double getScreenHeight(BuildContext context) {
     return MediaQuery.of(context).size.height;
   }
