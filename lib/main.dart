@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vanira/pages/login_page.dart';
 
 void main() {
   runApp(const MainApp());
@@ -16,11 +17,7 @@ class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+      home: LoginPage(),
       theme: ThemeData(
         colorScheme: ColorScheme.fromSwatch().copyWith(
           primary: const Color(0xFFEEFFF2), 
