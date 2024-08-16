@@ -132,7 +132,21 @@ class _LoginPageState extends State<LoginPage> with AppMixin{
               SizedBox(height: 20,),
               RichText(
                 text: TextSpan(
-                  
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: medium,
+                    fontFamily: 'montserrat',
+                    color: theme.colorScheme.onPrimary,
+                  ),
+                  children: [
+                    TextSpan(
+                      text: "Belum punya akun? "
+                    ),
+                    TextSpan(
+                      text: "Buat akun",
+                      style: TextStyle(fontWeight: bold),
+                    )
+                  ]
                 ),
               )
             ],

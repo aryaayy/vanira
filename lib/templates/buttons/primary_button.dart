@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:vanira/main.dart';
 
-class PrimaryButton extends StatelessWidget {
+class PrimaryButton extends StatelessWidget with AppMixin {
 
   final VoidCallback onPressed;
   final String buttonText;
@@ -17,10 +18,10 @@ class PrimaryButton extends StatelessWidget {
         //   backgroundColor: Color(0xFF83D0AF),
         // ),
         child: Text(
-          buttonText,
+          " " + buttonText + " ",
           style: TextStyle(
             fontSize: fontSize,
-            fontWeight: FontWeight.w600,
+            fontWeight: bold,
             color: Colors.white,
           ),
         ),
