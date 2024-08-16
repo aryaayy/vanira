@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vanira/main.dart';
+import 'package:vanira/templates/buttons/primary_button.dart';
+import 'package:vanira/templates/forms/form_icon.dart';
 import 'package:vanira/templates/forms/form_text.dart';
 
 class LoginPage extends StatefulWidget {
@@ -11,6 +13,9 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> with AppMixin{
   final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  bool _obscureText = true;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +24,7 @@ class _LoginPageState extends State<LoginPage> with AppMixin{
     return Scaffold(
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.all(15.0),
+          padding: const EdgeInsets.all(20.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -27,7 +32,7 @@ class _LoginPageState extends State<LoginPage> with AppMixin{
               Text(
                 "Masuk",
                 style: TextStyle(
-                  fontSize: 25,
+                  fontSize: 27,
                   fontWeight: bold,
                   color: theme.colorScheme.onPrimary,
                 ),
@@ -46,9 +51,25 @@ class _LoginPageState extends State<LoginPage> with AppMixin{
                           inputLabel: "Email",
                           labelFontSize: 18,
                           hintText: "Masukkan Email",
-                          hintTextSize: 14,
+                          hintTextSize: 16,
                           icon: Icons.alternate_email_rounded,
                           controller: _emailController,
+                        ),
+                        SizedBox(height: 18,),
+                        FormIcon(
+                          inputLabel: "Kata Sandi",
+                          labelFontSize: 18,
+                          hintText: "Masukkan Kata Sandi",
+                          hintTextSize: 16,
+                          icon: Icons.key,
+                          suffixIcon: _obscureText ? Icons.visibility_off_rounded : Icons.visibility,
+                          controller: _passwordController,
+                          onPressed: () {
+                            setState(() {
+                              _obscureText = !_obscureText;
+                            });
+                          },
+                          obscureText: _obscureText,
                         ),
                       ],
                     ),
@@ -57,6 +78,61 @@ class _LoginPageState extends State<LoginPage> with AppMixin{
                     borderRadius: BorderRadius.all(Radius.circular(20)),
                     color: primaryContainer,
                   ),
+                ),
+              ),
+              SizedBox(height: 15,),
+              PrimaryButton(
+                onPressed: () {
+
+                },
+                buttonText: "Masuk",
+                fontSize: 20
+              ),
+              SizedBox(height: 20,),
+              Row(
+                children: [
+                  Expanded(
+                    child: Divider(
+                      color: theme.colorScheme.secondary,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+                    child: Text(
+                      "Atau masuk menggunakan",
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: medium,
+                        color: theme.colorScheme.secondary,
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Divider(
+                      color: theme.colorScheme.secondary,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 20,),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Image.asset(
+                      'assets/logos/google.png',
+                    ),
+                    Image.asset(
+                      'assets/logos/facebook.png',
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 20,),
+              RichText(
+                text: TextSpan(
+                  
                 ),
               )
             ],

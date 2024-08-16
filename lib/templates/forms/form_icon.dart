@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vanira/main.dart';
 
-class FormText extends StatefulWidget {
+class FormIcon extends StatefulWidget {
   final String inputLabel;
   final IconData icon;
   final double labelFontSize;
@@ -12,11 +12,15 @@ class FormText extends StatefulWidget {
   final TextInputType keyboardType;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
+  final IconData suffixIcon;
+  final VoidCallback onPressed;
+  final bool obscureText;
 
-  const FormText({
+  const FormIcon({
     super.key,
     required this.inputLabel,
     required this.icon,
+    required this.suffixIcon,
     this.labelFontSize = 14,
     this.labelLetterSpacing = 0,
     this.readOnly = false,
@@ -25,13 +29,15 @@ class FormText extends StatefulWidget {
     this.keyboardType = TextInputType.text,
     required this.controller,
     this.validator,
+    required this.onPressed,
+    this.obscureText = false,
   });
 
   @override
-  State<FormText> createState() => _FormTextState();
+  State<FormIcon> createState() => _FormIconState();
 }
 
-class _FormTextState extends State<FormText> with AppMixin {
+class _FormIconState extends State<FormIcon> with AppMixin {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -61,6 +67,7 @@ class _FormTextState extends State<FormText> with AppMixin {
             readOnly: widget.readOnly,
             controller: widget.controller,
             keyboardType: widget.keyboardType,
+            obscureText: widget.obscureText,
             decoration: InputDecoration(
               contentPadding: EdgeInsets.symmetric(vertical: 0,),
               border: OutlineInputBorder(
@@ -71,6 +78,15 @@ class _FormTextState extends State<FormText> with AppMixin {
                 fontSize: widget.hintTextSize,
                 fontWeight: medium,
                 color: Theme.of(context).colorScheme.secondary,
+              ),
+              suffixIcon: IconButton(
+                padding: EdgeInsets.only(bottom: 1),
+                icon: Icon(
+                  widget.suffixIcon,
+                  color: Theme.of(context).colorScheme.secondary,
+                  size: 20,
+                ),
+                onPressed: widget.onPressed,
               ),
             ),
             style: TextStyle(
