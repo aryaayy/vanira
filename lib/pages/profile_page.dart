@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 import 'package:vanira/main.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -8,13 +9,21 @@ class ProfilePage extends StatefulWidget {
   State<ProfilePage> createState() => _ProfilePageState();
 }
 
+class ScaleSize {
+  static double textScaleFactor(BuildContext context, {double maxTextScaleFactor = 2}) {
+    final width = MediaQuery.of(context).size.width;
+    double val = (width / 1400) * maxTextScaleFactor;
+    return max(1, min(val, maxTextScaleFactor));
+  }
+}
+
 class _ProfilePageState extends State<ProfilePage> with AppMixin{
   @override
   Widget build(BuildContext context) {
     
     final double avatarSize = getScreenWidth(context) * 0.3;
     final double primaryIconSize = getScreenWidth(context) * 0.1;
-    final double secondaryIconSize= getScreenWidth(context) * 0.1;
+    final double secondaryIconSize = getScreenWidth(context) * 0.1;
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -56,8 +65,17 @@ class _ProfilePageState extends State<ProfilePage> with AppMixin{
                   children: [
                     Text(
                       "@aryaaydin",
+                      // style: TextStyle(
+                      //   fontSize: getScreenWidth(context) * (14/getScreenWidth(context)),
+                      // ),
                     ),
-                    Text("Arya Aydin Margono"),
+                    Text(
+                      "Udin",
+                      textScaler: TextScaler.linear(ScaleSize.textScaleFactor(context)),
+                      // style: TextStyle(
+                      //   fontSize: getScreenWidth(context) * (18/getScreenWidth(context)),
+                      // ),
+                    ),
                     Row(
                       children: [
                         Icon(
