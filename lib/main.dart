@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vanira/pages/login_page.dart';
+import 'package:vanira/pages/profile_page.dart';
 
 void main() {
   runApp(const MainApp());
@@ -17,12 +18,11 @@ class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: LoginPage(),
+      home: ProfilePage(),
       theme: ThemeData(
         colorScheme: ColorScheme.fromSwatch().copyWith(
           primary: const Color(0xFFEEFFF2), 
           onPrimary: const Color(0xFF2E694B), 
-          onPrimaryContainer: const Color(0xFFBDD7C3),
           secondary: const Color(0xFF67A076), 
           tertiary: const Color(0xFFFE9F6A),
           onTertiary: const Color(0xFFF5BE9F)
@@ -37,6 +37,14 @@ class _MainAppState extends State<MainApp> {
 }
 
 mixin AppMixin{
+  double getScreenHeight(BuildContext context) {
+    return MediaQuery.of(context).size.height;
+  }
+
+  double getScreenWidth(BuildContext context) {
+    return MediaQuery.of(context).size.width;
+  }
+
   FontWeight bold = FontWeight.w700;
   FontWeight semi = FontWeight.w600;
   FontWeight medium = FontWeight.w500;
