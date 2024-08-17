@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vanira/main.dart';
+import 'package:vanira/pages/login_page.dart';
 import 'package:vanira/templates/buttons/next_button.dart';
 
 class WelcomePage extends StatefulWidget {
@@ -65,7 +66,7 @@ class _WelcomePageState extends State<WelcomePage> with AppMixin {
                         SizedBox(height: 20,),
                         NextButton(
                           onPressed: () {
-                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => Welcome2Page()));
+                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Welcome2Page()));
                           },
                         ),
                       ],
@@ -167,7 +168,7 @@ class _Welcome2PageState extends State<Welcome2Page> with AppMixin {
                     SizedBox(height: 20,),
                     NextButton(
                       onPressed: () {
-
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
                       },
                     ),
                   ],
