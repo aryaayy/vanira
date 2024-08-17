@@ -14,9 +14,9 @@ class PrimaryButton extends StatelessWidget with AppMixin {
     return Container(
       child: TextButton(
         onPressed: onPressed,
-        // style: TextButton.styleFrom(
-        //   backgroundColor: Color(0xFF83D0AF),
-        // ),
+        style: TextButton.styleFrom(
+          backgroundColor: Color(0xFF83D0AF),
+        ),
         child: Text(
           " " + buttonText + " ",
           style: TextStyle(

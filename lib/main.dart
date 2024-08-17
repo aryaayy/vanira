@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:vanira/pages/login_page.dart';
 import 'package:vanira/pages/profile_page.dart';
 
 void main() {
@@ -27,7 +28,6 @@ class MainApp extends StatelessWidget {
         dividerColor: Color(0xFFBDD7C3),
         splashColor: Color(0xFF67A076),
       ),
-      home: const ProfilePage(),
     );
   }
 }
