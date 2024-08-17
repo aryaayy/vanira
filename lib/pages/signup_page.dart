@@ -4,18 +4,21 @@ import 'package:vanira/templates/buttons/primary_button.dart';
 import 'package:vanira/templates/forms/form_icon.dart';
 import 'package:vanira/templates/forms/form_text.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _LoginPageState extends State<LoginPage> with AppMixin{
+class _SignUpPageState extends State<SignUpPage> with AppMixin{
+  final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _passwordConfirmationController = TextEditingController();
 
   bool _obscureText = true;
+  bool _obscureConfirmationText = true;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +38,7 @@ class _LoginPageState extends State<LoginPage> with AppMixin{
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    "Masuk",
+                    "Daftar",
                     style: TextStyle(
                       fontSize: 27,
                       fontWeight: bold,
@@ -52,6 +55,15 @@ class _LoginPageState extends State<LoginPage> with AppMixin{
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            FormText(
+                              inputLabel: "Nama Lengkap",
+                              labelFontSize: 18,
+                              hintText: "Masukkan Nama Lengkap",
+                              hintTextSize: 16,
+                              icon: Icons.alternate_email_rounded,
+                              controller: _nameController,
+                            ),
+                            SizedBox(height: 18,),
                             FormText(
                               inputLabel: "Email",
                               labelFontSize: 18,
@@ -75,6 +87,22 @@ class _LoginPageState extends State<LoginPage> with AppMixin{
                                 });
                               },
                               obscureText: _obscureText,
+                            ),
+                            SizedBox(height: 18,),
+                            FormIcon(
+                              inputLabel: "Konfirmasi Kata Sandi",
+                              labelFontSize: 18,
+                              hintText: "Konfirmasi Kata Sandi",
+                              hintTextSize: 16,
+                              icon: Icons.key,
+                              suffixIcon: _obscureConfirmationText ? Icons.visibility_off_rounded : Icons.visibility,
+                              controller: _passwordConfirmationController,
+                              onPressed: () {
+                                setState(() {
+                                  _obscureConfirmationText = !_obscureConfirmationText;
+                                });
+                              },
+                              obscureText: _obscureConfirmationText,
                             ),
                           ],
                         ),
@@ -104,7 +132,7 @@ class _LoginPageState extends State<LoginPage> with AppMixin{
                       Padding(
                         padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
                         child: Text(
-                          "Atau masuk menggunakan",
+                          "Atau buat menggunakan",
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: medium,
@@ -155,10 +183,10 @@ class _LoginPageState extends State<LoginPage> with AppMixin{
                       ),
                       children: [
                         TextSpan(
-                          text: "Belum punya akun? "
+                          text: "Sudah punya akun? "
                         ),
                         TextSpan(
-                          text: "Buat akun",
+                          text: "Masuk",
                           style: TextStyle(fontWeight: bold),
                         ),
                       ]
