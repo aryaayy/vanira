@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vanira/pages/profile_page.dart';
 
 void main() {
@@ -13,7 +12,8 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: const ProfilePage(),
+      // home: LoginPage(),
       theme: ThemeData(
         colorScheme: ColorScheme.fromSwatch().copyWith(
           primary: const Color(0xFFEEFFF2),
@@ -27,7 +27,6 @@ class MainApp extends StatelessWidget {
         dividerColor: Color(0xFFBDD7C3),
         splashColor: Color(0xFF67A076),
       ),
-      home: const ProfilePage(),
     );
   }
 }
