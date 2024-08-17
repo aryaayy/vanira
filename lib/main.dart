@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vanira/pages/login_page.dart';
 import 'package:vanira/pages/profile_page.dart';
 import 'package:vanira/pages/signup_page.dart';
