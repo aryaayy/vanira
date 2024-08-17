@@ -1,5 +1,7 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:vanira/main.dart';
+import 'package:vanira/pages/login_page.dart';
 import 'package:vanira/templates/buttons/primary_button.dart';
 import 'package:vanira/templates/forms/form_icon.dart';
 import 'package:vanira/templates/forms/form_text.dart';
@@ -188,6 +190,9 @@ class _SignUpPageState extends State<SignUpPage> with AppMixin{
                         TextSpan(
                           text: "Masuk",
                           style: TextStyle(fontWeight: bold),
+                          recognizer: TapGestureRecognizer()..onTap = () {
+                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                          }
                         ),
                       ]
                     ),

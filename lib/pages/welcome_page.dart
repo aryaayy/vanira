@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vanira/main.dart';
 import 'package:vanira/pages/login_page.dart';
+import 'package:vanira/pages/signup_page.dart';
 import 'package:vanira/templates/buttons/next_button.dart';
 
 class WelcomePage extends StatefulWidget {
@@ -168,7 +169,7 @@ class _Welcome2PageState extends State<Welcome2Page> with AppMixin {
                     SizedBox(height: 20,),
                     NextButton(
                       onPressed: () {
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignUpPage()));
                       },
                     ),
                   ],

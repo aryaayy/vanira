@@ -1,5 +1,7 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:vanira/main.dart';
+import 'package:vanira/pages/signup_page.dart';
 import 'package:vanira/templates/buttons/primary_button.dart';
 import 'package:vanira/templates/forms/form_icon.dart';
 import 'package:vanira/templates/forms/form_text.dart';
@@ -160,6 +162,9 @@ class _LoginPageState extends State<LoginPage> with AppMixin{
                         TextSpan(
                           text: "Buat akun",
                           style: TextStyle(fontWeight: bold),
+                          recognizer: TapGestureRecognizer()..onTap = () {
+                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignUpPage()));
+                          }
                         ),
                       ]
                     ),
